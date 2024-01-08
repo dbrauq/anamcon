@@ -10,6 +10,9 @@ This project incorporates certain resources, each with its corresponding license
 
 ![anamcon](https://github.com/dbrauq/anamcon/assets/122096703/9ec082cd-e16c-4a6b-8678-0720dce21dc1)
 
+![anamcon_report](https://github.com/dbrauq/anamcon/assets/122096703/12962946-3b8d-4c5b-a491-e313798b96ba)
+
+
 ----------------
 # ATTRIBUTIONS
 ----------------
