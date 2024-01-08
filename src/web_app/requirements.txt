@@ -1,0 +1,14 @@
+flask
+jinja2
+pymongo
+flask-session
+flask-pyMongo
+python-magic
+pydub
+reportlab
+cryptography
+numpy
+pandas
+matplotlib
+google-cloud-dialogflow==2.13.0
+

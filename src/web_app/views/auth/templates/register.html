@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang={{USE_REGISTER_TEXTS.language}}>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/register/styles_base">
+        <link rel="stylesheet" href="/register/styles_register">
+        <link rel="icon" href="/register/logo_icon" type="image/png">
+        <title>
+            {{USE_REGISTER_TEXTS.title}}
+        </title>
+    </head>
+    <body>
+        <header>
+            <div class="header_home">
+                 <div class="icon_box_left">
+                    <a href="/" class="logo_link">
+                        <img src="/register/logo_icon" id="logo_icon" alt="AnamCon_Logo_Icon">
+                    </a>
+                </div>
+            </div>
+            <div class="header_menu">
+                <img src="/register/logo_text" alt="AnamCon_Logo_Text">
+            </div>
+            <div class="header_user">
+                <div class="language_menu">
+                    <img src="/register/language_icon/{{LANGUAGE}}" id="use_language_icon" alt="Use_Language_Icon"  >
+                    <div class="language_menu_content">
+                        {% for lang in USE_AVAILABLE_LANGUAGES %}
+                            <a href="/register/{{lang}}" id="set_language_{{lang}}" language="{{lang}}">
+                                <div class="lang_pack">
+                                    <img src="/terms/language_icon/{{ lang }}" class="language_icon" alt="Language_Icon">
+                                    <div class="lang_pack_text">
+                                        <p class="language_name">{{USE_AVAILABLE_LANGUAGES_VERBOSE[loop.index0][0]}}</p>
+                                        <p class="language_country">{{USE_AVAILABLE_LANGUAGES_VERBOSE[loop.index0][1]}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+            </div>    
+        </header>
+        <main>
+            <div id ="register_content_zone_center" class="content_zone_center">
+                <div class="content_box">
+                    <div class="content_box_header">
+                        <div class="content_box_header_icon_left">
+                            <p class="header_icon_left">📝</p>
+                        </div>
+                        <div class="content_box_header_text">
+                            <h1>
+                                {{USE_REGISTER_TEXTS.description_header}}
+                            </h1>
+                        </div>
+                        <div class="content_box_header_icon_right">
+                        </div>
+                    </div>
+                    <div class="content_box_main">
+                        <form id="register_form" action="/register/process" method="post" novalidate>
+                            <div class="input_zone_vertical" id="register_input_zone_vertical">
+                                <div class="input_group">
+                                    <div class="input_sub_group_row">
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="username">
+                                                    {{USE_REGISTER_TEXTS.username}} 
+                                                    <div class="required">&nbsp;*</div>
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <input id="username" name="username" type="text" required>
+                                            </div>
+                                        </div>
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <button class="primary_button disabled" id="check_username" type="button">
+                                                    {{USE_REGISTER_TEXTS.check_available}}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="error_text_box" id="username_error_text_box">
+                                        <p class="error" id="username_error_text"></p>
+                                    </div>
+                                </div>
+                                <div class="input_group">
+                                    <div class="input_sub_group_row">
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="password">
+                                                    {{USE_REGISTER_TEXTS.password}} 
+                                                    <div class="required">&nbsp;*</div>
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <input id="password" name="password" type="password" required>
+                                            </div>
+                                        </div>  
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="password_confirmation">
+                                                    {{USE_REGISTER_TEXTS.password_confirmation}} 
+                                                    <div class="required">&nbsp;*</div>
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <input id="password_confirmation" name="password_confirmation" type="password" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="error_text_box" id="password_error_text_box">
+                                        <p class="error" id="password_error_text"></p>
+                                    </div>
+                                </div>
+                                <div class="input_group">
+                                    <div class="input_sub_group_row">
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="sex">
+                                                    {{USE_REGISTER_TEXTS.id}}
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <select id="id_type" name="id_type" required>
+                                                    <option value="" disabled selected>{{USE_REGISTER_TEXTS.select}}</option>
+                                                    {% for sex in USE_REGISTER_TEXTS.id_options %}
+                                                    <option value="{{sex}}">{{sex}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>  
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="id">
+                                                    {{USE_REGISTER_TEXTS.id}} 
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <input id="id" name="id" type="text" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="error_text_box", id="id_error_text_box">
+                                        <p class="error" id="password_error_text"></p>
+                                    </div>
+                                </div>
+                                <div class="input_group">
+                                    <div class="input_sub_group_row">
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="name">
+                                                    {{USE_REGISTER_TEXTS.name}}
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <input id="name" name="name" type="text">
+                                            </div>
+                                        </div>  
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="surname">
+                                                    {{USE_REGISTER_TEXTS.surname}}
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <input id="surname" name="surname" type="text">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="input_group">
+                                    <div class="input_text_left">
+                                        <label for="birth_date">
+                                            {{USE_REGISTER_TEXTS.birth_date}}
+                                        </label>
+                                    </div>
+                                    <div class="input_field">
+                                            <input id="birth_date" name="birth_date" type="date" required>
+                                    </div>
+                                    <div class="error_text_box", id="birth_date_error_text_box">
+                                        <p class="error" id="birth_date_error_text"></p>
+                                    </div>
+                                </div>
+                                <div class="input_group">
+                                    <div class="input_sub_group_row">
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="sex">
+                                                    {{USE_REGISTER_TEXTS.sex}}
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <select id="sex" name="sex" required>
+                                                    <option value="" disabled selected>{{USE_REGISTER_TEXTS.select}}</option>
+                                                    {% for sex in USE_REGISTER_TEXTS.sex_options %}
+                                                    <option value="{{sex}}">{{sex}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>  
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="gender">
+                                                    {{USE_REGISTER_TEXTS.gender}}
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <select id="gender" name="gender">
+                                                    <option value="" disabled selected>{{USE_REGISTER_TEXTS.select}}</option>
+                                                    {% for sex in USE_REGISTER_TEXTS.gender_options %}
+                                                    <option value="{{sex}}">{{sex}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="error_text_box" id="sex_error_text_box">
+                                        <p class="error" id="sex_error_text"></p>
+                                    </div>
+                                </div>
+                                <div class="input_group">
+                                    <div class="input_sub_group_row">
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="email">
+                                                    {{USE_REGISTER_TEXTS.email}}
+                                                    <div class="required">&nbsp;*</div>
+                                                </label>
+                                            </div>
+                                            <div class="input_field" id="input_email">
+                                                <input id="email" name="email" type="email" required>
+                                            </div>
+                                        </div>  
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="email_confirmation">
+                                                    {{USE_REGISTER_TEXTS.email_confirmation}}
+                                                    <div class="required">&nbsp;*</div>
+                                                </label>
+                                            </div>
+                                            <div class="input_field" id="input_email_repeat">
+                                                <input id="email_confirmation" name="email_confirmation" type="email" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="error_text_box" id="email_error_text_box">
+                                        <p class="error" id="email_error_text"></p>
+                                    </div>
+                                </div>
+                                <div class="input_group">
+                                    <div class="input_text_left">
+                                        <label for="telephone_number">
+                                            {{USE_REGISTER_TEXTS.telephone_number}}
+                                        </label>
+                                    </div>
+                                    <div class="input_field">
+                                            <input id="telephone_number" name="telephone_number" type="tel">
+                                    </div>
+                                </div>
+                                <div class="input_group">
+                                    <div class="input_text_left">
+                                        <label for="adress">
+                                            {{USE_REGISTER_TEXTS.adress}}
+                                        </label>
+                                    </div>
+                                    <div class="input_field">
+                                            <input id="adress" name="adress" type="text">
+                                    </div>
+                                </div>
+                                <div class="input_group">
+                                    <div class="input_sub_group_row">
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="zip">
+                                                    {{USE_REGISTER_TEXTS.zip}}
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <input id="zip" name="zip" type="text">
+                                            </div>
+                                        </div>  
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="country">
+                                                    {{USE_REGISTER_TEXTS.country}}
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <input id="country" name="country" type="text">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="input_group">
+                                    <div class="input_sub_group_row">
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="health_provider">
+                                                    {{USE_REGISTER_TEXTS.health_provider}}
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <input id="health_provider" name="health_provider" type="text">
+                                            </div>
+                                        </div>  
+                                        <div class="input_sub_group_row_element">
+                                            <div class="input_text_left">
+                                                <label for="health_number">
+                                                    {{USE_REGISTER_TEXTS.health_number}}
+                                                </label>
+                                            </div>
+                                            <div class="input_field">
+                                                <input id="health_number" name="health_number" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input_group">
+                                    <div class="input_field" id="terms_field">
+                                        <input id="terms" name="terms" type="checkbox">
+                                        <label class="terms_label" for="terms">
+                                            {{USE_REGISTER_TEXTS.terms_checkbox}}&nbsp;<a href="/terms" target="_blank">{{USE_REGISTER_TEXTS.terms_title}}</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="extra_text" id="mandatory_fields_errors">{{USE_REGISTER_TEXTS.mandatory_fields_errors}}</p>
+                            <p class="extra_text" id="mandatory_input_errors">{{USE_REGISTER_TEXTS.mandatory_input_errors}}</p>
+                            <p class="extra_text" id="accept_terms_error">{{USE_REGISTER_TEXTS.accept_terms_error}}</p>
+                            <button class="primary_button disabled" id="register_button" type="submit">
+                                {{USE_REGISTER_TEXTS.register_button}}
+                            </button>
+                        </form>
+                    </div>
+                </div>    
+            </div>
+        </main>
+        <footer>
+            <div class="footer_content">
+                {{USE_REGISTER_TEXTS.copyright}}
+                &nbsp;|&nbsp;
+                {{USE_REGISTER_TEXTS.version}}
+                &nbsp;|&nbsp;
+                {{USE_REGISTER_TEXTS.disclaimer}}
+                &nbsp;|&nbsp;
+                <a id="footer_terms_link" href="/terms" target="_blank">{{USE_REGISTER_TEXTS.terms}}</a>
+            </div>
+        </footer>
+        <script src="/register/username_js"></script>
+        <script src="/register/password_js"></script>
+        <script src="/register/email_js"></script>
+        <script src="/register/valid_register_js"></script>
+    </body>
+</html>

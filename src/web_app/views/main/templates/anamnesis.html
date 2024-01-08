@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang={{USE_ANAMNESIS_TEXTS.language}}>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/anamnesis/styles_main">
+        <link rel="stylesheet" href="/anamnesis/styles_base">
+        <link rel="icon" href="/anamnesis/logo_icon" type="image/png">
+        <title>
+            {{USE_ANAMNESIS_TEXTS.title}}
+        </title>
+    </head>
+    <body>
+        <header>
+            <div class="header_home">
+                 <div class="icon_box_left">
+                    <a href="/" class="logo_link">
+                        <img class="icon_menu" src="/anamnesis/logo_icon" id="logo_icon" alt="AnamCon_Logo_Icon">
+                    </a>
+                </div>
+            </div>
+            <div class="header_menu">
+                <a href="/" class="menu_link">
+                    <div class="header_submenu" id="header_submenu_main">
+                        <img class="icon_menu_center" src="/anamnesis/main_icon" id="main_icon" alt="AnamCon_Logo_Icon">
+                        {{USE_ANAMNESIS_TEXTS.navigator_menu_title}}
+                    </div>
+                </a>
+                <a href="/" class="menu_link">
+                    <div class="header_submenu" id="header_submenu_reports">
+                        <img class="icon_menu_center" src="/anamnesis/reports_icon" id="reports_icon" alt="AnamCon_Logo_Icon">
+                        {{USE_ANAMNESIS_TEXTS.reports_menu_title}}
+                    </div>
+                </a>
+                <a href="/" class="menu_link">
+                    <div class="header_submenu" id="header_submenu_user">
+                        <img class="icon_menu_center" src="/anamnesis/user_icon" id="user_icon" alt="AnamCon_Logo_Icon">
+                        {{USE_ANAMNESIS_TEXTS.user_menu_title}}
+                    </div>
+                </a>
+                <a href="/logout" class="menu_link">
+                    <div class="header_submenu" id="header_submenu_exit">
+                        <img class="icon_menu_center" src="/anamnesis/log_out_icon" id="log_out_icon" alt="AnamCon_Logo_Icon">
+                        {{USE_ANAMNESIS_TEXTS.log_out_menu_title}}
+                    </div>
+                </a>
+            </div>
+            <div class="header_user">
+                <div class="language_menu">
+                    <img src="/anamnesis/language_icon/{{LANGUAGE}}" id="use_language_icon" alt="Use_Language_Icon"  >
+                    <div class="language_menu_content">
+                        {% for lang in USE_AVAILABLE_LANGUAGES %}
+                            <a href="/anamnesis/{{lang}}" id="set_language_{{lang}}" language="{{lang}}">
+                                <div class="lang_pack">
+                                    <img class="icon_menu" src="/anamnesis/language_icon/{{ lang }}" class="language_icon" alt="Language_Icon">
+                                    <div class="lang_pack_text">
+                                        <p class="language_name">{{USE_AVAILABLE_LANGUAGES_VERBOSE[loop.index0][0]}}</p>
+                                        <p class="language_country">{{USE_AVAILABLE_LANGUAGES_VERBOSE[loop.index0][1]}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>    
+        </header>
+        <main>
+            <div id ="anamnesis_content_zone_left" class="content_zone_left">
+                <div class="content_box">
+                    <div class="content_box_header">
+                        <div class="content_box_header_icon_left">
+                            <p class="header_icon_left">☰</p>
+                        </div>
+                        <div class="content_box_header_text">
+                            <h1>
+                                {{USE_ANAMNESIS_TEXTS.navigation_zone}}
+                            </h1>
+                        </div>
+                        <div class="content_box_header_icon_right">
+                        </div>
+                    </div>
+                    <div class="content_box_main_head" id="content_box_main_left_head">
+                        <div class="anamnesis_navigator_box" id="new_anamnesis_navigator_box">
+                            <div class="anamnesis_navigator_box_left" id="anamnesis_navigator_box_left_new">
+                                <p class="anamnesis_navigation_text_new">
+                                    <p class="anamnesis_navigation_text_left_new">
+                                    ➕
+                                    </p> 
+                                </p>
+                            </div>
+                            <div class="anamnesis_navigator_box_center">
+                                <p class="anamnesis_navigation_text_new">
+                                    {{USE_ANAMNESIS_TEXTS.new_anamnesis}}
+                                </p>
+                            </div>
+                            <div class="anamnesis_navigation_new_types">
+                                {% for anamnesis in USE_ANAMNESIS_TEXTS.available_anamnesis_texts %}
+                                        <div class="anamnesis_type_pack" id="anamnesis_type_pack_{{USE_ANAMNESIS_TEXTS.available_anamnesis_names[loop.index0]}}">
+                                            <div class="anamnesis_type_icon">
+                                                {{USE_ANAMNESIS_TEXTS.available_anamnesis_icons[loop.index0]}}
+                                            </div>
+                                            <div class="anamnesis_type_text">
+                                                {{anamnesis}}
+                                            </div>
+                                        </div>
+                                {% endfor %}
+                            </div>
+                            <div class="anamnesis_navigator_box_right_hidden" id="new_anamnesis_navigator_box_right">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_box_main" id="content_box_main_left">
+                        <!-- Navigator content -->
+                    </div>
+                </div>
+            </div>
+            <div id ="anamnesis_content_zone_center" class="content_zone_center">
+                <div class="content_box">
+                    <div class="content_box_header">
+                        <div class="content_box_header_icon_left">
+                            <p class="header_icon_left">☰</p>
+                        </div>
+                        <div class="content_box_header_text">
+                            <h1>
+                                {{USE_ANAMNESIS_TEXTS.anamnesis_zone}}
+                            </h1>
+                        </div>
+                        <div class="content_box_header_icon_right">
+                        </div>
+                    </div>
+                    <div class="content_box_main" id="content_box_main_head">
+                        <div class="content_box_main_head_zone" id="content_box_main_head_title">
+                            <div class="content_box_main_head_title_component" id="content_box_main_head_title_text">
+                                {{USE_ANAMNESIS_TEXTS.anamnesis_title}}
+                            </div>
+                            <div class="content_box_main_head_title_component" id="content_box_main_head_title_input">
+                                <input id="title_input"></input>
+                            </div>  
+                        </div>
+                        <div class="content_box_main_head_zone", id="content_box_main_head_audio">
+                            <button class="secondary_button" id="audio_off_button" type="button">
+                                <img id="sound_off_image" src="/anamnesis/sound_off">
+                            </button>
+                            <button class="secondary_button active_audio_mode" id="audio_on_button" type="button">
+                                <img id="sound_on_image" src="/anamnesis/sound_on">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="content_box_main" id="content_box_main_conversation">
+                        <!-- Anamnesis content -->
+                    </div>
+                    
+                    <div class="content_box_main" id="content_box_main_input">
+                        <div id="content_box_main_input_zone_left">
+                            <div id="content_box_main_message_input">
+                                <input id="main_message_input" placeholder="{{USE_ANAMNESIS_TEXTS.input_placeholder}}">
+                            </input>
+                            </div>  
+                        </div>
+                        <div id="content_box_main_input_zone_right">
+                            <button class="primary_button" id="send_text_button" type="button">
+                                <img id="sound_off_image" src="/anamnesis/message">
+                            </button>
+                            <button class="primary_button" id="send_audio_button" type="button">
+                                <img id="sound_on_image" src="/anamnesis/micro">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id ="anamnesis_content_zone_right" class="content_zone_right">
+                <div class="content_box">
+                    <div class="content_box_header">
+                        <div class="content_box_header_icon_left">
+                            <p class="header_icon_left">☰</p>
+                        </div>
+                        <div class="content_box_header_text">
+                            <h1>
+                                {{USE_ANAMNESIS_TEXTS.summary_zone}}
+                            </h1>
+                        </div>
+                        <div class="content_box_header_icon_right">
+                        </div>
+                    </div>
+                    <div class="content_box_right" id="content_box_main_right">
+                        <!-- Summary content -->    
+                    </div>
+                    <div id="content_box_main_download_button">
+                        <button class="primary_button" id="download_report_button" type="button">
+                            📑 &nbsp&nbsp {{USE_ANAMNESIS_TEXTS.download_report_button_text}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer_content">
+                    {{USE_ANAMNESIS_TEXTS.copyright}}
+                    &nbsp;|&nbsp;
+                    {{USE_ANAMNESIS_TEXTS.version}}
+                    &nbsp;|&nbsp;
+                    {{USE_ANAMNESIS_TEXTS.disclaimer}}
+                    &nbsp;|&nbsp;
+                    <a id="footer_terms_link" href="/terms" target="_blank">{{USE_ANAMNESIS_TEXTS.terms}}</a>
+            </div>
+        </footer>
+        <script src="/anamnesis/resize_js"></script>
+        <script src="/anamnesis/anamnesis_js"></script>
+    </body>
+</html>

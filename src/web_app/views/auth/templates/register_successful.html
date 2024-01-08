@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang={{USE_REGISTER_SUCCESS_TEXTS.language}}>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/register_successful/styles_register_successful">
+        <link rel="stylesheet" href="/register_successful/styles_base">
+        <link rel="icon" href="/register_successful/logo_icon" type="image/png">
+        <title>
+            {{USE_REGISTER_SUCCESS_TEXTS.title}}
+        </title>
+    </head>
+    <body>
+        <header>
+            <div class="header_home">
+                 <div class="icon_box_left">
+                    <a href="/" class="logo_link">
+                        <img src="/register_successful/logo_icon" id="logo_icon" alt="AnamCon_Logo_Icon">
+                    </a>
+                </div>
+            </div>
+            <div class="header_menu">
+                <img src="/register_successful/logo_text" alt="AnamCon_Logo_Text">
+            </div>
+            <div class="header_user">
+                <div class="language_menu">
+                    <img src="/register_successful/language_icon/{{LANGUAGE}}" id="use_language_icon" alt="Use_Language_Icon"  >
+                    <div class="language_menu_content">
+                        {% for lang in USE_AVAILABLE_LANGUAGES %}
+                            <a href="/register_successful/{{lang}}" id="set_language_{{lang}}" language="{{lang}}">
+                                <div class="lang_pack">
+                                    <img src="/register_successful/language_icon/{{ lang }}" class="language_icon" alt="Language_Icon">
+                                    <div class="lang_pack_text">
+                                        <p class="language_name">{{USE_AVAILABLE_LANGUAGES_VERBOSE[loop.index0][0]}}</p>
+                                        <p class="language_country">{{USE_AVAILABLE_LANGUAGES_VERBOSE[loop.index0][1]}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+            </div>    
+        </header>
+        <main>
+            <div id ="message_content_zone_center" class="content_zone_center">
+                <div class="content_box">
+                    <div class="content_box_header">
+                        <div class="content_box_header_icon_left">
+                            <p class="header_icon_left">☰</p>
+                        </div>
+                        <div class="content_box_header_text">
+                            <h1>
+                                {{USE_REGISTER_SUCCESS_TEXTS.description_header}}
+                            </h1>
+                        </div>
+                        <div class="content_box_header_icon_right">
+                        </div>
+                    </div>
+                    <div class="content_box_main">
+                        <div class="text_zone">
+                            <p class="message_bold">{{USE_REGISTER_SUCCESS_TEXTS.description_1}}</p>
+                            <p class="message">{{USE_REGISTER_SUCCESS_TEXTS.description_2}}</p>
+                            <p class="message">{{USE_REGISTER_SUCCESS_TEXTS.description_3}}</p>
+                            <div id="link_login_box">
+                                <button class="primary_button" id="login_link_button" onclick="window.location.href='/login'">
+                                    {{USE_REGISTER_SUCCESS_TEXTS.login_button}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer_content">
+                    {{USE_REGISTER_SUCCESS_TEXTS.copyright}}
+                    &nbsp;|&nbsp;
+                    {{USE_REGISTER_SUCCESS_TEXTS.version}}
+                    &nbsp;|&nbsp;
+                    {{USE_REGISTER_SUCCESS_TEXTS.disclaimer}}
+                    &nbsp;|&nbsp;
+                    <a id="footer_terms_link" href="/terms" target="_blank">{{USE_REGISTER_SUCCESS_TEXTS.terms}}</a>
+            </div>
+        </footer>
+    </body>
+</html>

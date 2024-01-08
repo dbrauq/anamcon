@@ -1,0 +1,60 @@
+#terms_content_zone_center{
+    width:800px;
+}
+
+.text_zone{
+    width:700px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.terms{
+    margin: 0px;
+    margin-top:0px;
+    margin-bottom: 12px;
+    padding:0px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:flex-start;
+    text-align:justify;
+    
+}
+
+.terms_bold {
+    margin:0px;
+    margin-bottom:3px;
+    padding:0px;
+    font-weight:bold;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:flex-start;
+
+}
+
+#anamcon_download_title{
+    margin: 0px;
+    margin-top:20px;
+    margin-bottom: 12px;
+    padding:0px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+#anamcon_download_link{
+    text-decoration: none;
+    margin-bottom:10px;
+
+}
+
+#download_anamcon_box {
+    width: 200;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}

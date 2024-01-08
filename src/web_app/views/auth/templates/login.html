@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang={{USE_LOGIN_TEXTS.language}}>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/login/styles_login">
+        <link rel="stylesheet" href="/login/styles_base">
+        <link rel="icon" href="/login/logo_icon" type="image/png">
+        <title>
+            {{USE_LOGIN_TEXTS.title}}
+        </title>
+    </head>
+    <body>
+        <header>
+            <div class="header_home">
+                 <div class="icon_box_left">
+                    <a href="/" class="logo_link">
+                        <img src="/login/logo_icon" id="logo_icon" alt="AnamCon_Logo_Icon">
+                    </a>
+                </div>
+            </div>
+            <div class="header_menu">
+                <img src="/login/logo_text" alt="AnamCon_Logo_Text">
+            </div>
+            <div class="header_user">
+                <div class="language_menu">
+                    <img src="/login/language_icon/{{LANGUAGE}}" id="use_language_icon" alt="Use_Language_Icon"  >
+                    <div class="language_menu_content">
+                        {% for lang in USE_AVAILABLE_LANGUAGES %}
+                            <a href="/login/{{lang}}" id="set_language_{{lang}}" language="{{lang}}">
+                                <div class="lang_pack">
+                                    <img src="/login/language_icon/{{ lang }}" class="language_icon" alt="Language_Icon">
+                                    <div class="lang_pack_text">
+                                        <p class="language_name">{{USE_AVAILABLE_LANGUAGES_VERBOSE[loop.index0][0]}}</p>
+                                        <p class="language_country">{{USE_AVAILABLE_LANGUAGES_VERBOSE[loop.index0][1]}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+            </div>    
+        </header>
+        <main>
+            <div id ="login_content_zone_center" class="content_zone_center">
+                <div class="content_box">
+                    <div class="content_box_header">
+                        <div class="content_box_header_icon_left">
+                            <p class="header_icon_left">☰</p>
+                        </div>
+                        <div class="content_box_header_text">
+                            <h1>
+                                {{USE_LOGIN_TEXTS.description_header}}
+                            </h1>
+                        </div>
+                        <div class="content_box_header_icon_right">
+                        </div>
+                    </div>
+                    <div class="content_box_main">
+                        <p>
+                            {{USE_LOGIN_TEXTS.description}}
+                        </p>
+                    </div>
+                </div>
+                <div class="content_box">
+                    <div class="content_box_header">
+                        <div class="content_box_header_icon_left">
+                            <p class="header_icon_left">🔒</p>
+                        </div>
+                        <div class="content_box_header_text">
+                            <h1>
+                                {{USE_LOGIN_TEXTS.login_header}}
+                            </h1>
+                        </div>
+                        <div class="content_box_header_icon_right">
+                        </div>
+                    </div>
+                    <div class="content_box_main">
+                        <form id="login_form" action="/login/process" method="post" novalidate>
+                            <div class="input_zone_vertical" id="login_input_zone_vertical">
+                                <div class="input_group">
+                                    <div class="input_text_left">
+                                        <label for="username">
+                                            {{USE_LOGIN_TEXTS.username}}
+                                        </label>
+                                    </div>
+                                    <div class="input_field" id="input_login_username">
+                                            <input id="username" name="username" type="text" required>
+                                    </div>
+                                </div>
+                                <div class="input_group">
+                                    <div class="input_text_left">
+                                    <label for="password">
+                                        {{USE_LOGIN_TEXTS.password}}
+                                    </label>
+                                    </div>
+                                    <div class="input_field" id="input_login_password">
+                                        <input id="password" name="password" type="password" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="primary_button" id="login_button" type="submit">
+                                {{USE_LOGIN_TEXTS.login_button}}
+                            </button>
+                            <div class="error_text_box", id="login_error_text_box">
+                                <p class="error" id="login_error_text">
+                                    {{USE_LOGIN_TEXTS.login_error_text}}
+                                </p>
+                            </div>
+                        </form>
+                        <div class="separator">
+                            <p class="separator_line">
+                                {{USE_LOGIN_TEXTS.separator}}
+                            </p>
+                        </div>
+                        <p>
+                        {{USE_LOGIN_TEXTS.forgot_password}}
+                        <a href="/recover">
+                            &nbsp; &nbsp; {{USE_LOGIN_TEXTS.recover_password}}
+                        </a>
+                        </p>
+                        <div class="separator">
+                            <p class="separator_line">
+                                {{USE_LOGIN_TEXTS.separator}}
+                            </p>
+                        </div>
+                        <p>
+                        {{USE_LOGIN_TEXTS.not_user}}
+                        </p>
+                        <button class="secondary_button" id="register_button" onclick="window.location.href='/register'">
+                            {{USE_LOGIN_TEXTS.register_button}}
+                        </button>
+                    </div>
+                </div>    
+            </div>
+        </main>
+        <footer>
+            <div class="footer_content">
+                    {{USE_LOGIN_TEXTS.copyright}}
+                    &nbsp;|&nbsp;
+                    {{USE_LOGIN_TEXTS.version}}
+                    &nbsp;|&nbsp;
+                    {{USE_LOGIN_TEXTS.disclaimer}}
+                    &nbsp;|&nbsp;
+                    <a id="footer_terms_link" href="/terms" target="_blank">{{USE_LOGIN_TEXTS.terms}}</a>
+            </div>
+        </footer>
+        <script src="/register/valid_login_js"></script>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+#login_content_zone_center{
+    width: 600px;
+}
+
+#login_input_zone_vertical{
+    width: 500px;
+}
+#login_button{
+    width: 500px;
+}
+#register_button{
+    width: 500px;
+}
+
+.input_text_left{
+    margin:0px;
+    padding:0px;
+    padding-bottom:6px;
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:center;
+    font-size:15px;
+    font-weight:bold;
+}
+
+.input_field{
+    margin:0px;
+    padding-left:0px;
+    padding-right:0px;
+    padding-top:0px;
+    padding-bottom:0px;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+input{
+    border:1px solid /*cs_5*/#91c6ff/*ce_5*/;
+    border-radius:6px;
+    margin:0px;
+    padding:0px;
+    padding-left:10px;
+    padding-right:10px;
+    height:30px;
+    font-size:15px;
+    width:480px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+input:hover{
+    border:1px solid /*cs_6*/#0264cc/*ce_6*/;
+}
+input:focus{
+    border:1px solid /*cs_6*/#0264cc/*ce_6*/;
+    outline:none;
+}
+
+#login_error_text_box{
+    margin-bottom:12px;
+    padding:0px;
+    display: none;
+    color: /*cs_8*/#ff0000/*ce_8*/;
+    
+}
+
+#login_error_text_box.display{
+    display: flex;
+}

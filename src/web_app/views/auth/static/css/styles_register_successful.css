@@ -1,0 +1,45 @@
+#message_content_zone_center{
+    width:600px;
+}
+
+.text_zone{
+    width:500px;
+    margin-top:20px;
+    margin-bottom:12px;
+}
+
+.message{
+    margin:0px;
+    margin-bottom: 12px;
+    padding:0px;
+    font-weight:normal;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:flex-start;
+    
+}
+
+.message_bold{
+    margin:0px;
+    margin-bottom: 12px;
+    padding:0px;
+    font-weight:bold;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:flex-start;
+
+}
+
+#login_link_button{
+    margin:12px;
+    align-self: center;
+}
+
+#link_login_box{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
