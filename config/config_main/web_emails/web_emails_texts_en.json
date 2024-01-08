@@ -1,0 +1,11 @@
+{
+    "wellcome":{
+        "title":"Wellcome to AnamCon",
+        "header_1":"Wellcome to AnamCon, @user",
+        "paragraph_1":"Thank you for joining AnamCon. We are glad you have become a part of our community. You can now access our system with your credentials.",
+        "paragraph_2":"• Your username is: @user",
+        "paragraph_3":"• Your recovery email is: @email",
+        "paragraph_4":"Please don't hesitate to contact us with any doubts or suggestions. We hope you have a successful experience.",
+        "paragraph_5":"The AnamCon Team."
+    }
+}

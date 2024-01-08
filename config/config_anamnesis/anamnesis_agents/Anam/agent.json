@@ -1,0 +1,23 @@
+{
+  "description": "",
+  "language": "es",
+  "shortDescription": "",
+  "examples": "",
+  "linkToDocs": "",
+  "displayName": "Anam",
+  "disableInteractionLogs": false,
+  "disableStackdriverLogs": true,
+  "defaultTimezone": "Europe/Kaliningrad",
+  "isPrivate": true,
+  "mlMinConfidence": 0.3,
+  "supportedLanguages": [],
+  "enableOnePlatformApi": true,
+  "onePlatformApiVersion": "v2beta1",
+  "secondaryKey": "f1ac557ad45e4c7f87d62e559848f3ed",
+  "analyzeQueryTextSentiment": true,
+  "enabledKnowledgeBaseNames": [],
+  "knowledgeServiceConfidenceAdjustment": 0.0,
+  "dialogBuilderMode": false,
+  "baseActionPackagesUrl": "",
+  "enableSpellCorrection": true
+}

@@ -1,0 +1,487 @@
+{
+  "agent_name": "Anam2",
+  "entities": [
+    {
+      "name": "booleano",
+      "title": "Booleano",
+      "options": [
+        {
+          "concept_terms": [
+            "Si",
+            "$__yes",
+            "afirmativo",
+            "verdadero",
+            "cierto",
+            "correcto",
+            "también",
+            "probablemente",
+            "con toda seguridad"
+          ],
+          "concept_identifiers": [
+            {
+              "SNOMED": 52101004
+            }
+          ]
+        },
+        {
+          "concept_terms": [
+            "No",
+            "negativo",
+            "falso",
+            "mentira",
+            "incorrecto",
+            "tampoco",
+            "en absoluto",
+            "de ningún modo",
+            "que va",
+            "para nada",
+            "por nada del mundo",
+            "de ninguna manera"
+          ],
+          "concept_identifiers": [
+            {
+              "SNOMED": 272519000
+            }
+          ]
+        },
+        {
+          "concept_terms": [
+            "No sabe",
+            "no lo se",
+            "no estoy seguro",
+            "no lo entiendo",
+            "no puedo precisar",
+            "no sabría decir",
+            "no lo comprendo",
+            "lo desconozco",
+            "puede ser",
+            "yo que se",
+            "no se",
+            "ni idea",
+            "tengo dudas",
+            "dudo"
+          ],
+          "concept_identifiers": [
+            {
+              "SNOMED": 261665006
+            }
+          ]
+        },
+        {
+          "concept_terms": [
+            "$__assisted"
+          ],
+          "concept_identifiers": []
+        }
+      ]
+    }
+  ],
+  "intents": [
+    {
+      "name": "Default Fallback Intent",
+      "type": "general",
+      "action": "input.unknown",
+      "training_texts": [],
+      "parameters": [],
+      "responses": [
+        "No he entendido a qué te refieres. ¿Podrías repetirlo o expresarlo de otro modo, por favor?"
+      ]
+    },
+    {
+      "name": "__intro",
+      "type": "general",
+      "action": "",
+      "training_texts": [
+        "$__intro"
+      ],
+      "parameters": [],
+      "responses": [
+        "Hola, soy Siam. A continuación, vamos a realizar un proceso de anamnesis psicológica. Recuerda que, si en algún momento hay alguna confusión o error, puedes comunicármelo para cancelar el proceso en curso y retomar la anamnesis desde el último punto guardado. Por último, no olvides añadir un título en la barra superior, ya que te ayudará a encontrar más fácilmente esta anamnesis en el futuro. Para comenzar, ¿podrías explicarme tu principal problema psicológico?"
+      ]
+    },
+    {
+      "name": "__continue",
+      "type": "general",
+      "action": "",
+      "training_texts": [
+        "$__continue"
+      ],
+      "parameters": [],
+      "responses": [
+        "Para continuar, por favor, indíqueme otro síntoma adicional describiéndolo. En caso de que ya me haya contado todos sus síntomas, indíqueme que ya me ha contado todos sus síntomas."
+      ]
+    },
+    {
+      "name": "__anamnesis_aparatos",
+      "type": "review",
+      "action": "",
+      "training_texts": [
+        "ya te he contado todos mis síntomas",
+        "ya está, nada más",
+        "eso es todo",
+        "he terminado de contarta mis síntomas"
+      ],
+      "parameters": [
+        {
+          "key": 0,
+          "required": true,
+          "is_symptom": false,
+          "symptom": null,
+          "name": "intro",
+          "title": "intro",
+          "entity": "booleano",
+          "prompts": [
+            "He entendido que ya me ha contado todos sus síntomas. A continuación voy a hacerle algunas preguntas para revisar otros síntomas que necesito descartar."
+          ]
+        },
+        {
+          "key": 1,
+          "required": true,
+          "is_symptom": true,
+          "symptom": "depresion",
+          "name": "depresion",
+          "title": "Depresión",
+          "entity": "booleano",
+          "prompts": [
+            "¿Ha notado una tristeza inusual o se ha sentido deprimido?"
+          ]
+        },
+        {
+          "key": 2,
+          "required": true,
+          "is_symptom": true,
+          "symptom": "ansiedad",
+          "name": "ansiedad",
+          "title": "Ansiedad",
+          "entity": "booleano",
+          "prompts": [
+            "¿Ha tenido sensación de ansiedad o angustia?"
+          ]
+        }
+      ],
+      "responses": [
+        "De acuerdo, hemos terminado con la revisión."
+      ]
+    },
+    {
+      "name": "__end",
+      "type": "general",
+      "action": "",
+      "training_texts": [
+        "$__end",
+        "finalizar",
+        "terminar la anamnesis"
+      ],
+      "parameters": [],
+      "responses": [
+        "Ya hemos finalizado la anamnesis. Muchas gracias por utilizar Ánamcon. A continuación puede generar y descargar el informe de la anamnesis o, si así lo desea, iniciar una nueva anamnesis."
+      ]
+    },
+    {
+      "name": "__saludo",
+      "type": "general",
+      "action": "",
+      "training_texts": [
+        "Hola",
+        "Buenos días",
+        "Encantado de saludarte",
+        "Te saludo",
+        "Un placer"
+      ],
+      "parameters": [],
+      "responses": [
+        "Hola, encantado de saludarte."
+      ]
+    },
+    {
+      "name": "__despedida",
+      "type": "general",
+      "action": "",
+      "training_texts": [
+        "Adios",
+        "Hasta luego",
+        "Nos vemos",
+        "Hasta pronto"
+      ],
+      "parameters": [],
+      "responses": [
+        "Hasta luego. Que pases un buen día."
+      ]
+    },
+    {
+      "name": "__error",
+      "type": "general",
+      "action": "",
+      "training_texts": [
+        "Salir",
+        "Error",
+        "Me he equivocado",
+        "Me he confundido",
+        "Ha habido un error",
+        "Nos estamos liando",
+        "No, no es esto lo que me pasa"
+      ],
+      "parameters": [],
+      "responses": [
+        "De acuerdo, no se preocupe. He eliminado el elemento erróneo y reiniciado el proceso en el último punto de guardado. Para continuar, por favor, indíqueme otro síntoma adicional describiéndolo. En caso de que ya me do todos tus síntomas, indícame que ya me has contado todos tus síntomas."
+      ]
+    },
+    {
+      "name": "__error_deteccion",
+      "type": "general",
+      "action": "",
+      "training_texts": [
+        "error inesperado"
+      ],
+      "parameters": [],
+      "responses": [
+        "Se ha producido un error inesperado. He eliminado el elemento erróneo y reiniciado el proceso en el último punto de guardado. Para continuar, por favor, indíqueme otro síntoma adicional describiéndolo. En caso de que ya me haya contado todos sus síntomas, indícame que ya me has contado todos tus síntomas."
+      ]
+    },
+    {
+      "name": "__whoami",
+      "type": "general",
+      "action": "",
+      "training_texts": [
+        "¿Quién eres?",
+        "¿Cuál es tu propósito?",
+        "¿Quién te ha hecho?",
+        "¿Quién te ha programado"
+      ],
+      "parameters": [],
+      "responses": [
+        "Soy Siam. He sido desarrollada por David Brau para realizar anamnesis médicas como parte de su trabajo fin de grado."
+      ]
+    },
+    {
+      "name": "pensamientos_obsesivos",
+      "title": "Pensamientos Obsesivos",
+      "type": "symptom",
+      "region": "craneal",
+      "concept_identifiers": [
+        {
+          "SNOMED": "67698009"
+        }
+      ],
+      "action": "",
+      "training_texts": [
+        "tengo pensamientos obsesivos",
+        "no paro de repetir acciones",
+        "me asaltan pensamientos no deseados",
+        "siento la necesidad de realizar ciertos actos repetitivos",
+        "mis pensamientos se repiten constantemente",
+        "no puedo dejar de pensar en ciertas ideas"
+      ],
+      "parameters": [
+        {
+          "key": 1,
+          "required": true,
+          "is_symptom": false,
+          "symptom": null,
+          "name": "inicio",
+          "title": "Inicio",
+          "entity": "sys.date-time",
+          "prompts": [
+            "¿Cuándo comenzaron estos pensamientos obsesivos?"
+          ]
+        },
+        {
+          "key": 2,
+          "required": true,
+          "is_symptom": false,
+          "symptom": null,
+          "name": "impacto",
+          "title": "Impacto vida diaria",
+          "entity": "booleano",
+          "prompts": [
+            "¿Cómo afectan estos pensamientos obsesivos a su vida diaria? ¿Le resulta difícil realizar ciertas actividades debido a ellos?"
+          ]
+        },
+        {
+          "key": 3,
+          "required": true,
+          "is_symptom": true,
+          "symptom": "compulsiones",
+          "name": "compulsiones",
+          "title": "Compulsiones",
+          "entity": "booleano",
+          "prompts": [
+            "¿Experimenta la necesidad de realizar actos repetitivos o rituales en respuesta a estos pensamientos obsesivos?"
+          ]
+        },
+        {
+          "key": 4,
+          "required": true,
+          "is_symptom": false,
+          "symptom": null,
+          "name": "tratamiento_previo",
+          "title": "Tratamiento previo",
+          "entity": "booleano",
+          "prompts": [
+            "¿Ha recibido tratamiento previo para los pensamientos obsesivos?"
+          ]
+        }
+      ],
+      "responses": [
+        "He registrado el síntoma de pensamientos obsesivos."
+      ]
+    },
+    {
+      "name": "ansiedad",
+      "title": "Ansiedad",
+      "type": "symptom",
+      "region": "craneal",
+      "concept_identifiers": [
+        {
+          "SNOMED": "48694002"
+        }
+      ],
+      "action": "",
+      "training_texts": [
+        "tengo sensación de ansiedad",
+        "tengo sensación de angustia",
+        "estoy angustiado",
+        "siento desasosiego o temor",
+        "me siento muy nervioso"
+      ],
+      "parameters": [
+        {
+          "key": 1,
+          "required": true,
+          "is_symptom": false,
+          "symptom": null,
+          "name": "inicio",
+          "title": "Inicio",
+          "entity": "sys.date-time",
+          "prompts": [
+            "¿Cuándo empezó a notar esa sensación de angustia?"
+          ]
+        },
+        {
+          "key": 2,
+          "required": true,
+          "is_symptom": false,
+          "symptom": null,
+          "name": "desencadenante",
+          "title": "Claro desencadenante",
+          "entity": "booleano",
+          "prompts": [
+            "¿El inicio coincide con un proceso traumático?, ¿Con un evento estresante?, ¿Con una infección o ingreso hospitalario?"
+          ]
+        },
+        {
+          "key": 3,
+          "required": true,
+          "is_symptom": true,
+          "symptom": "dolor_toracico",
+          "name": "dolor_toracico",
+          "title": "Dolor torácico",
+          "entity": "booleano",
+          "prompts": [
+            "¿Tiene dolor en el tórax?"
+          ]
+        },
+        {
+          "key": 4,
+          "required": true,
+          "is_symptom": true,
+          "symptom": "disnea",
+          "name": "disnea",
+          "title": "Disnea",
+          "entity": "booleano",
+          "prompts": [
+            "¿Siente ahogo o dificultad para respirar?"
+          ]
+        },
+        {
+          "key": 5,
+          "required": true,
+          "is_symptom": false,
+          "symptom": null,
+          "name": "drogas",
+          "title": "Uso de drogas",
+          "entity": "booleano",
+          "prompts": [
+            "¿Ha tomado recientemente sustancias estupefacientes o drogas?"
+          ]
+        }
+      ],
+      "responses": [
+        "He anotado el síntoma de ansiedad"
+      ]
+    },
+    {
+      "name": "depresion",
+      "title": "Depresión",
+      "type": "symptom",
+      "region": "craneal",
+      "concept_identifiers": [
+        {
+          "SNOMED": "35489007"
+        }
+      ],
+      "action": "",
+      "training_texts": [
+        "me siento deprimido",
+        "experimento una profunda tristeza",
+        "estoy triste",
+        "no encuentro placer en actividades que solían gustarme",
+        "no tengo esperanzas",
+        "no tengo motivaciones"
+      ],
+      "parameters": [
+        {
+          "key": 1,
+          "required": true,
+          "is_symptom": false,
+          "symptom": null,
+          "name": "inicio",
+          "title": "Inicio",
+          "entity": "sys.date-time",
+          "prompts": [
+            "¿Cuándo comenzó a experimentar esta sensación de depresión?"
+          ]
+        },
+        {
+          "key": 2,
+          "required": true,
+          "is_symptom": false,
+          "symptom": null,
+          "name": "impacto",
+          "title": "Impacto en su vida diaria",
+          "entity": "booleano",
+          "prompts": [
+            "¿Ha notado cambios en su capacidad para realizar actividades cotidianas?"
+          ]
+        },
+        {
+          "key": 4,
+          "required": true,
+          "is_symptom": true,
+          "symptom": "insomnio",
+          "name": "insomnio",
+          "title": "Insomnio",
+          "entity": "booleano",
+          "prompts": [
+            "¿Ha experimentado dificultades para conciliar el sueño o ha tenido insomnio?"
+          ]
+        },
+        {
+          "key": 5,
+          "required": true,
+          "is_symptom": true,
+          "symptom": "cambios_apetito",
+          "name": "cambios_apetito",
+          "title": "Cambios en el apetito",
+          "entity": "booleano",
+          "prompts": [
+            "¿Ha experimentado cambios significativos en su apetito?"
+          ]
+        }
+      ],
+      "responses": [
+        "He registrado el síntoma de depresión."
+      ]
+    }
+  ]
+}
