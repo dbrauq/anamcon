@@ -7,6 +7,9 @@ Distributed under MIT License. See [LICENSE](/LICENSE).
 Please note that this software has been developed for academic purposes. It has not been clinically tested and therefore it is NOT INTENDED FOR MEDICAL USE.
 This project incorporates certain resources, each with its corresponding license, as explained below. Please ensure you read and accept these licenses before using the software.
 
+
+![anamcon](https://github.com/dbrauq/anamcon/assets/122096703/9ec082cd-e16c-4a6b-8678-0720dce21dc1)
+
 ----------------
 # ATTRIBUTIONS
 ----------------
