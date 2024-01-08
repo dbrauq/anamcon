@@ -2,8 +2,10 @@
 # ANAMCON
 ----------------
 AnamCon is an open, automated, and customizable web anamnesis system.
+
 Created by David Brau Queralt and developed as the final bachelor's degree project in Biomedical Engineering. 
 Distributed under MIT License. See [LICENSE](/LICENSE).
+
 Please note that this software has been developed for academic purposes. It has not been clinically tested and therefore it is NOT INTENDED FOR MEDICAL USE.
 
 ![anamcon_pre](https://github.com/dbrauq/anamcon/assets/122096703/dc158ebf-f61f-41f4-b660-95fbed7f54ac)
